@@ -1,0 +1,130 @@
+/* Форма фильтрации */
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    background-color: #f1f8e9; /* Светло-зелёный фон */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Поля ввода формы */
+  .filter-input {
+    padding: 10px;
+    border: 1px solid #81c784; /* Светло-зелёная рамка */
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .filter-input:focus {
+    outline: none;
+    border-color: #4caf50; /* Зелёная рамка при фокусе */
+  }
+  
+  /* Кнопка фильтрации */
+  .filter-button {
+    background-color: #4caf50; /* Зелёный фон */
+    color: white; /* Белый текст */
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .filter-button:hover {
+    background-color: #81c784; /* Светло-зелёный фон при наведении */
+  }
+  
+  /* Таблица */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .styled-table thead tr {
+    background-color: #4caf50; /* Зелёный фон заголовков таблицы */
+    color: white;
+  }
+  
+  .styled-table th,
+  .styled-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Граница ячеек */
+  }
+  
+  .styled-table tbody tr:nth-child(even) {
+    background-color: #f1f8e9; /* Светло-зелёный фон для чётных строк */
+  }
+  
+  .styled-table tbody tr:hover {
+    background-color: #81c784; /* Светло-зелёный фон при наведении */
+    color: white;
+  }
+
+
+  /* Стиль для страницы RequestView*/
+
+  .search-input {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid #81c784;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .search-input:focus {
+    outline: none;
+    border-color: #4caf50;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+  }
+  
+  .user-table thead tr {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .user-table th,
+  .user-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .user-table tbody tr:nth-child(even) {
+    background-color: #f1f8e9;
+  }
+  
+  .trust-level-input {
+    width: 3rem;
+    padding: 5px;
+    border: 1px solid #81c784;
+    border-radius: 8px;
+  }
+  
+  .update-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-button:hover {
+    background-color: #81c784;
+  }

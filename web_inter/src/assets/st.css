@@ -1,0 +1,123 @@
+/* Центровка навигатора */
+.nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    gap: 15px; /* Расстояние между ссылками */
+  }
+  
+  /* Базовый стиль ссылок */
+  .nav-link {
+    text-decoration: none;
+    color: #2e7d32; /* Зелёный цвет текста */
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Активная ссылка */
+  .nav-link.active {
+    background-color: #4caf50; /* Зелёный фон для активной ссылки */
+    color: white; /* Белый текст */
+  }
+  
+  /* Эффект наведения */
+  .nav-link:hover {
+    background-color: #81c784; /* Светло-зелёный фон при наведении */
+    color: white;
+  }
+  
+  .nav-button {
+    margin-left: 10px; /* Расстояние между кнопками */
+    padding: 10px 15px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+.nav-button:hover {
+  background-color: #81c784; /* Более тёмный красный фон при наведении */
+}
+
+
+  /* Основной стиль страницы */
+  main {
+    padding: 20px;
+    background-color: #f1f8e9; /* Светло-зелёный фон */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Центровка содержимого */
+  }
+
+
+
+  /* Стиль для страницы логина */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 10vh; /* Центровка по высоте экрана */
+  background-color: #f1f8e9; /* Светло-зелёный фон */
+  padding: 20px;
+}
+
+.login-container h1 {
+  color: #2e7d32; /* Зелёный текст заголовка */
+  margin-bottom: 20px;
+}
+
+.login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  background-color: white; /* Белый фон */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-container label {
+  font-weight: bold;
+  color: #2e7d32; /* Зелёный текст */
+}
+
+.login-container input {
+  padding: 10px;
+  border: 1px solid #81c784; /* Светло-зелёная рамка */
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.login-container input:focus {
+  outline: none;
+  border-color: #4caf50; /* Зелёная рамка при фокусе */
+}
+
+.login-container button {
+  background-color: #4caf50; /* Зелёный фон */
+  color: white; /* Белый текст */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-container button:hover {
+  background-color: #81c784; /* Светло-зелёный фон при наведении */
+}
+
+.login-container p {
+  color: #e53935; /* Красный текст для ошибки */
+  font-weight: bold;
+}

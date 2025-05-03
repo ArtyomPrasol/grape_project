@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Web Interface (Vue.js frontend)
+  web_interface:
+    build:
+      context: ./web_inter
+      dockerfile: Dockerfile
+    ports:
+      - "4173:4173"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - grape_network
+    depends_on:
+      - app_web
+
+  # Mobile App Backend
+  app_mobile:
+    build:
+      context: ./app_mobile
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5001"
+    networks:
+      - grape_network
+
+
+  # Web App Backend
+  app_web:
+    build:
+      context: ./app_web
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    networks:
+      - grape_network
+
+
+
+networks:
+  grape_network:
+    driver: bridge
