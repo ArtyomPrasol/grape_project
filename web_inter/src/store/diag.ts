@@ -1,10 +1,11 @@
 import axios from "axios";
+import API_BASE_URL from '../config/api';
 
 let diagnosesCache = null;
 
 export async function fetchDiagnoses() {
   if (!diagnosesCache) {
-    const response = await axios.get('http://127.0.0.1:5000/api/diagnoses');
+    const response = await axios.get(`${API_BASE_URL}/api/diagnoses`);
     console.log("Полученные диагнозы: ", response.data)
     diagnosesCache = response.data;
   }
