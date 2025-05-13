@@ -34,7 +34,9 @@ class QueueProcessor:
                 task_id, filename = task
                 image_path = os.path.join(REQ_FOLDER, filename)
 
-                confidence, class_id = self.model_manager.process_image(
+                
+
+                class_id, best_image, cropped_imgae = self.model_manager.process_image(
                     image_path,
                     self.db.bind_class_model
                 )
@@ -43,9 +45,10 @@ class QueueProcessor:
                     self.db.update_request_status(task_id, -1, filename)
                 else:
                     new_filename = 'r' + filename
-                    if upload_file(self.minio_client, image_path, new_filename):
+                    if upload_file(self.minio_client, best_image, new_filename):
                         self.db.update_request_status(task_id, class_id, new_filename)
                         os.remove(image_path)
+                        for path in cropped_imgae: os.remove(path)
 
             except Exception as e:
                 print(f"Error processing queue: {str(e)}")

@@ -22,7 +22,8 @@ class ModelManager:
                 x1, y1, x2, y2 = map(int, box.xyxy[0]) 
                 cropped_image = image[y1:y2, x1:x2]
                 output_name = f"{i}_name.jpg"
-                pathes.append((os.path.join(DONE_FOLDER, output_name), cropped_image))
+                pathes.append(os.path.join(DONE_FOLDER, output_name))
+                cv2.imwrite(os.path.join(DONE_FOLDER, output_name), cropped_image)
                 i += 1
                 
         return pathes
