@@ -13,8 +13,8 @@ def get_requests():
     query = """
     SELECT r.id_req, r.id_user, cl.name_class, r.date_create, r.file_name, rs.file_name_get 
     FROM g_request r
-    LEFT JOIN g_request_spec rs on r.id_req = rs.id_req
-    LEFT JOIN g_class_list cl on cl.id_class = rs.id_class
+    JOIN g_request_spec rs on r.id_req = rs.id_req
+    JOIN g_class_list cl on cl.id_class = rs.id_class
     WHERE 1=1"""
 
     params = []
