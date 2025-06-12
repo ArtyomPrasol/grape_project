@@ -3,11 +3,6 @@
     <h1 class="text-4xl font-bold text-purple-700 mb-6">Grape Project</h1>
 
     <div class="max-w-3xl bg-white rounded-2xl shadow-md overflow-hidden">
-      <img 
-        src="https://via.placeholder.com/800x400" 
-        alt="Листья винограда и анализ болезней" 
-        class="w-full h-64 object-cover"
-      />
 
       <div class="p-6">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Как глубокое обучение помогает классифицировать болезни растений</h2>

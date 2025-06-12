@@ -6,6 +6,7 @@
         <th>ID запроса</th>
         <th>ID пользователя</th>
         <th>Диагноз</th>
+        <th>Комментарий</th>
         <th>Дата создания</th>
         <th>Имя файла</th>
         <th>Обработанный файл</th>
@@ -18,6 +19,7 @@
         <td>{{ row.id_req }}</td>
         <td>{{ row.id_user }}</td>
         <td>{{ row.diagnosis }}</td>
+        <td>{{ row.comment }}</td>
         <td>{{ row.date_create }}</td>
         <td>{{ row.file_name }}</td>
         <td>{{ row.file_name_get }}</td>
