@@ -33,6 +33,7 @@ def init_routes(app, queue_processor):
 
             return jsonify({'message': f'Data saved with ID: {id_client}, Image: {filename}'})
         except Exception as e:
+            db.conn.rollback()
             return jsonify({'error': str(e)}), 500
 
     @app.route('/user/<int:id_client>/request', methods=['GET'])
@@ -67,6 +68,7 @@ def init_routes(app, queue_processor):
         
             return jsonify(result)
         except Exception as e:
+            db.conn.rollback()
             return jsonify({'error': str(e)}), 500
 
     @app.route('/register', methods=['POST'])
@@ -102,6 +104,7 @@ def init_routes(app, queue_processor):
             
             return jsonify({"user_id": user[0]}), 200
         except Exception as e:
+            db.conn.rollback()
             return jsonify({'error': str(e)}), 500
 
     @app.route('/get_classes', methods=['GET'])
@@ -112,6 +115,7 @@ def init_routes(app, queue_processor):
                 'classes': class_list
             })
         except Exception as e:
+            db.conn.rollback()
             return jsonify({'error': str(e)}), 500
 
     @app.route('/user', methods=['GET'])
@@ -138,6 +142,7 @@ def init_routes(app, queue_processor):
             return jsonify(result), 200
 
         except Exception as e:
+            db.conn.rollback()
             return jsonify({"error": str(e)}), 500
 
     @app.route('/update_user', methods=['PUT'])
@@ -178,6 +183,7 @@ def init_routes(app, queue_processor):
             return jsonify({"message": "Профиль успешно обновлён"}), 200
 
         except Exception as e:
+            db.conn.rollback()
             return jsonify({"error": str(e)}), 500
 
     @app.route("/get_url")
@@ -207,6 +213,7 @@ def init_routes(app, queue_processor):
             return jsonify({"success": True})
 
         except Exception as e:
+            db.conn.rollback()
             return jsonify({"error": str(e)}), 500
 
     @app.route('/stats', methods=['GET'])
@@ -282,5 +289,5 @@ def init_routes(app, queue_processor):
             return jsonify({'mode': 'by_diagnosis', 'data': result}), 200
 
         except Exception as e:
-            print("Ошибка в /api/stats:", e)
+            db.conn.rollback()
             return jsonify({"error": str(e)}), 500 
