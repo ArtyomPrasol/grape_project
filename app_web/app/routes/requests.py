@@ -11,10 +11,11 @@ def get_requests():
     }
 
     query = """
-    SELECT r.id_req, r.id_user, cl.name_class, r.date_create, r.file_name, rs.file_name_get 
+    SELECT r.id_req, r.id_user, cl.name_class, cl2.name_class r.date_create, r.file_name, rs.file_name_get 
     FROM g_request r
     JOIN g_request_spec rs on r.id_req = rs.id_req
     JOIN g_class_list cl on cl.id_class = rs.id_class
+    LEFT JOIN g_class_list cl2 on cl2.id_class = r.id_comment_class
     WHERE 1=1"""
 
     params = []
@@ -45,10 +46,10 @@ def get_requests():
     requests = [list(rec) for rec in requests]
 
     for rec in requests:
-        if rec[4]:
-            rec.append(get_presigned_url(rec[4]))
         if rec[5]:
             rec.append(get_presigned_url(rec[5]))
+        if rec[6]:
+            rec.append(get_presigned_url(rec[6]))
 
     reqsend = []
     for req in requests:
@@ -56,11 +57,12 @@ def get_requests():
             'id_req': req[0],
             'id_user': req[1],
             'diagnosis': req[2],
-            'date_create': req[3],
-            'file_name': req[4],
-            'file_name_get': req[5],
-            'file_url': req[6],
-            'file_url_processed': req[7]
+            'comment': req[3],
+            'date_create': req[4],
+            'file_name': req[5],
+            'file_name_get': req[6],
+            'file_url': req[7],
+            'file_url_processed': req[8]
         }
         reqsend.append(req_data)
 
