@@ -11,7 +11,7 @@ def get_requests():
     }
 
     query = """
-    SELECT r.id_req, r.id_user, cl.name_class, cl2.name_class r.date_create, r.file_name, rs.file_name_get 
+    SELECT r.id_req, r.id_user, cl.name_class, cl2.name_class, r.date_create, r.file_name, rs.file_name_get 
     FROM g_request r
     JOIN g_request_spec rs on r.id_req = rs.id_req
     JOIN g_class_list cl on cl.id_class = rs.id_class
