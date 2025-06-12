@@ -43,6 +43,7 @@ class QueueProcessor:
                     self.db.update_request_status(task_id, -1, filename)
                 else:
                     new_filename = 'r' + filename
+                    print("Best_img : ", best_img, " ; new_filename : ", new_filename)
                     if upload_file(self.minio_client, best_img, new_filename):
                         self.db.update_request_status(task_id, class_id, new_filename)
                         os.remove(image_path)
