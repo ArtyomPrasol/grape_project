@@ -83,6 +83,8 @@ def init_routes(app, queue_processor):
 
             return jsonify({'message': 'User registered successfully', 'user_id': user_id})
         except Exception as e:
+            db.conn.rollback(cur)
+            cur.close()
             return jsonify({'error': str(e)}), 500
 
     @app.route('/login', methods=['POST'])
