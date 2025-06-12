@@ -37,17 +37,16 @@ class ModelManager:
     def process_image(self, image_path, bind_class_model):
         """Обрабатывает изображение и возвращает предсказание"""
         image = cv2.imread(image_path)
-        cropped_images = self.crop_image_with_yolo(image)
+        self.cropped_images = self.crop_image_with_yolo(image)
         
-        if not cropped_images:
+        if not self.cropped_images:
             return None, -1
             
         predictions = []
-        for path, img in cropped_images:
+        for path, img in self.cropped_images:
             cv2.imwrite(path, img)
             pred = self.predict_for_image(path)
             predictions.append(pred)
-            os.remove(path)
             
         predictions = np.array(predictions).squeeze()
         if predictions.ndim == 1:
@@ -58,5 +57,18 @@ class ModelManager:
         
         best_idx = np.argmax(max_confidences)
         best_class = bind_class_model[max_classes[best_idx]]
+        best_path = self.cropped_images[best_idx]
         
-        return max_confidences[best_idx], best_class 
+        return best_path, best_class 
+    
+
+    def clear_cropped_images(self):
+        if len(self.cropped_images) == 0:
+            print("Error: Пустой cropped_images")
+            return
+         
+        for path, img in self.cropped_images:
+            os.remove(path)
+        
+        return
+        
